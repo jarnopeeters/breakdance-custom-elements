@@ -1,46 +1,48 @@
 <?php
 
 /**
- * Plugin Name: Breakdance Custom Elements
- * Plugin URI: https://breakdance.com/
- * Description: Boilerplate plugin to save your custom elements created with Element Studio.
- * Author: Breakdance
- * Author URI: https://breakdance.com/
+ * Plugin Name: BGS Custom Elements
+ * Plugin URI: https://insideweb.nl/
+ * Description: Custom Elements for Biodentistry Global Standard.
+ * Author: InsideWeb
+ * Author URI: https://insideweb.nl/
  * License: GPLv2
  * Text Domain: breakdance
  * Domain Path: /languages/
  * Version: 0.0.1
  */
 
-namespace BreakdanceCustomElements;
+namespace BGSCustomElements;
 
 use function Breakdance\Util\getDirectoryPathRelativeToPluginFolder;
 
-add_action('breakdance_loaded', function () {
-    \Breakdance\ElementStudio\registerSaveLocation(
-        getDirectoryPathRelativeToPluginFolder(__DIR__) . '/elements',
-        'BreakdanceCustomElements',
-        'element',
-        'Custom Elements',
-        false
-    );
+add_action(
+	'breakdance_loaded',
+	function () {
+		\Breakdance\ElementStudio\registerSaveLocation(
+			getDirectoryPathRelativeToPluginFolder(__DIR__) . '/elements',
+			'BGSCustomElements',
+			'element',
+			'BGS Elements',
+			false
+		);
 
-    \Breakdance\ElementStudio\registerSaveLocation(
-        getDirectoryPathRelativeToPluginFolder(__DIR__) . '/macros',
-        'BreakdanceCustomElements',
-        'macro',
-        'Custom Macros',
-        false,
-    );
+		\Breakdance\ElementStudio\registerSaveLocation(
+			getDirectoryPathRelativeToPluginFolder(__DIR__) . '/macros',
+			'BGSCustomElements',
+			'macro',
+			'BGS Macros',
+			false,
+		);
 
-    \Breakdance\ElementStudio\registerSaveLocation(
-        getDirectoryPathRelativeToPluginFolder(__DIR__) . '/presets',
-        'BreakdanceCustomElements',
-        'preset',
-        'Custom Presets',
-        false,
-    );
-},
-    // register elements before loading them
-    9
+		\Breakdance\ElementStudio\registerSaveLocation(
+			getDirectoryPathRelativeToPluginFolder(__DIR__) . '/presets',
+			'BGSCustomElements',
+			'preset',
+			'BGS Presets',
+			false,
+		);
+	},
+	// register elements before loading them
+	9
 );
